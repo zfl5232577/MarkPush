@@ -1,6 +1,53 @@
 
 # MarkPush
 集成友盟推送，包括厂商系统推送。
+### 集成方式
+###### 一、GitHub远程仓库
+    repositories {
+          maven { url "https://raw.githubusercontent.com/zfl5232577/maven/master" }
+          maven { url 'https://dl.bintray.com/umsdk/release' }
+      }
+    allprojects {
+        repositories {
+            maven { url "https://raw.githubusercontent.com/zfl5232577/maven/master" }
+            maven { url 'https://dl.bintray.com/umsdk/release' }
+        }
+    }
+
+    dependencies {
+        implementation 'com.mark:markpush-lib:lastversion'
+    }
+
+##### 或者
+
+###### 二、Jcenter远程仓库
+    repositories {
+        maven { url 'https://dl.bintray.com/umsdk/release' }
+    }
+
+    allprojects {
+            repositories {
+                maven { url 'https://dl.bintray.com/umsdk/release' }
+            }
+        }
+
+    dependencies {
+      implementation 'com.mark:markpush-lib:lastversion'
+    }
+
+### 使用
+    PushHelper.getInstance().init(this,"5af2608cf29d981850000208","mark","8bbf20db1bc770d5df570163e941084d");
+    PushHelper.getInstance().register(this);
+    PushHelper.getInstance().registerMeizuPush(this,"118261","b4492fd61afc4ff8a9d41150c9096529");
+    PushHelper.getInstance().setAlias(this,"test","user");
+    PushHelper.getInstance().setLogEnabled(BuildConfig.DEBUG);
+    PushHelper.getInstance().setNotificationClickHandler(this,new UmengNotificationClickHandler(){
+        @Override
+        public void dealWithCustomAction(Context context, UMessage uMessage) {
+            Log.e("mark", "dealWithCustomAction: "+ uMessage.extra);
+            Toast.makeText(context, uMessage.custom, Toast.LENGTH_SHORT).show();
+        }
+    });
 
 ### 混淆规则
     -dontwarn com.umeng.**
