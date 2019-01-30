@@ -54,16 +54,16 @@ dependencies {
     implementation 'com.umeng.umsdk:meizu-push:3.8.1'
     implementation 'com.umeng.umsdk:meizu-umengaccs:1.0.6'
 }
-////在本地生成aar,然后手动push到githup的远程仓库
-//uploadArchives{
-//    repositories{
-//        mavenDeployer{
-//            repository(url:uri('C:/Users/Mark/Desktop/maven-snapshots'))
-//            pom.groupId = 'com.mark' // 组名
-//            pom.artifactId = 'markpush-lib' // 插件名
-//            pom.version = '1.0.0' // 版本号
-//        }
-//    }
-//}
+//在本地生成aar,然后手动push到githup的远程仓库
+uploadArchives{
+    repositories{
+        mavenDeployer{
+            repository(url:uri('C:/Users/Mark/Desktop/maven-snapshots'))
+            pom.groupId =  GROUP// 组名
+            pom.artifactId = POM_ARTIFACT_ID // 插件名
+            pom.version = VERSION_NAME // 版本号
+        }
+    }
+}
 
 apply from: rootProject.file('gradle/jcenter-push.gradle')

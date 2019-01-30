@@ -15,7 +15,7 @@
     }
 
     dependencies {
-        implementation 'com.mark:markpush-lib:lastversion'
+        implementation 'com.mark:markpush:lastversion'
     }
 
 ##### 或者
@@ -32,7 +32,7 @@
         }
 
     dependencies {
-      implementation 'com.mark:markpush-lib:lastversion'
+      implementation 'com.mark:markpush:lastversion'
     }
 
 ### 使用

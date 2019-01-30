@@ -33,6 +33,8 @@ install {
     repositories.mavenInstaller {
         pom.project {
             name POM_NAME
+            groupId GROUP
+            artifactId POM_ARTIFACT_ID
             packaging POM_PACKAGING
             description POM_DESCRIPTION
             url POM_URL
